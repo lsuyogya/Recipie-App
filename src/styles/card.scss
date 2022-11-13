@@ -1,0 +1,64 @@
+@use './colors' as col;
+.detail-table {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(1fr, 2);
+	.col1 {
+		margin-left: 2rem;
+	}
+	.col2 {
+		margin-left: 1rem;
+	}
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-left: 1rem;
+	.card {
+		background-color: col.$dark-black;
+		border-radius: 10px;
+		padding: 2em;
+		gap: 1rem;
+		margin: auto;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		img {
+			height: 400px;
+			width: 400px;
+			object-fit: scale-down;
+			margin-inline: auto;
+			border-radius: 10px;
+			background-color: col.$light-black;
+			margin-bottom: 2rem;
+			animation: skeleton-img 1s infinite alternate;
+		}
+		.meal-key {
+			font-weight: 700;
+		}
+		.meal-value {
+			max-width: 25rem;
+		}
+		.title {
+			margin-left: 0.5rem;
+		}
+		.meal-name {
+			margin-left: 0.5rem;
+			font-size: 2.8rem;
+			margin-bottom: 2rem;
+			max-width: 25rem;
+			line-height: 3rem;
+		}
+	}
+}
+
+@keyframes skeleton-img {
+	from {
+		background-color: col.$grey;
+	}
+	to {
+		background-color: lighten(col.$grey, 10);
+	}
+}
