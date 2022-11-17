@@ -1,12 +1,13 @@
 import Form from './components/SearchForm';
-
-import RandomPage from './components/RandomPage';
+import { RouterProvider } from 'react-router';
+// import RandomPage from './components/RandomPage';
+import Router from './features/routing/Router';
+import './styles/app.scss';
 
 function App() {
 	return (
 		<div className='App'>
-			{/* <Form></Form> */}
-			<RandomPage />
+			<Router></Router>
 		</div>
 	);
 }

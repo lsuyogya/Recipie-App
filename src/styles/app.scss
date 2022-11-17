@@ -1,0 +1,9 @@
+.App {
+	display: flex;
+	max-width: 100%;
+	overflow-x: hidden;
+	// display: grid;
+	// grid-template-columns: repeat(1fr, 5);
+	width: 100vw;
+	scrollbar-width: 100px;
+}

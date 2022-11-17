@@ -23,7 +23,9 @@ const RandomPage = () => {
 					return <MealCard meal={meal} key={meal.idMeal} />;
 				})}
 			</div>
-			<button onClick={() => refetch()}>Random</button>
+			{/* <button style={{ marginTop: '20px' }} onClick={() => refetch()}>
+				Random
+			</button> */}
 		</>
 	);
 };
