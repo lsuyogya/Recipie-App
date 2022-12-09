@@ -2,19 +2,27 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	Route,
-	Routes,
 	RouterProvider,
 } from 'react-router-dom';
 import Layout from '../../components/Layout';
-import RandomPage from '../../components/RandomPage';
+import MealDetail from '../../components/MealDetail';
+import HomePage from '../../components/HomePage';
+import CategoryPage from '../../components/CategoryPage';
 
 const Router = () => {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<>
-				<Route path='/' element=<Layout />>
-					<Route path='/random' element=<RandomPage /> />
+				<Route path='/' element={<Layout />}>
+					<Route path='/' element={<HomePage />} />
+					<Route path='/meal'>
+						<Route path=':mealId' element={<MealDetail />} />
+					</Route>
+					<Route path='/categories' element={<CategoryPage />}>
+						{/* <Route path='/' element={<CategoryPage />} /> */}
+					</Route>
 				</Route>
+				<Route path='*' element={404} />
 			</>
 		)
 	);

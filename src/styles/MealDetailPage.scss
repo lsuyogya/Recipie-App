@@ -1,11 +1,10 @@
-main.card-holder {
+main {
 	width: calc(100% - 30px);
 	max-width: 100%;
 	overflow-x: hidden;
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+	// grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
 	gap: 2rem;
-	place-content: center;
 }
 
 @media screen and (width < 1600px) {
@@ -23,10 +22,7 @@ main.card-holder {
 .top-bar {
 	display: flex;
 	flex-wrap: wrap;
-	text-align: right;
-	padding-right: 4%;
-	padding-left: 2%;
 	align-items: center;
-	justify-content: space-between;
-	gap: 2rem;
+	justify-content: center;
+	text-align: center;
 }

@@ -1,9 +1,24 @@
 .App {
-	display: flex;
-	max-width: 100%;
+	// display: flex;
+	min-height: 100%;
+	width: 99vw;
+	// max-width: fit-content;
 	overflow-x: hidden;
-	// display: grid;
-	// grid-template-columns: repeat(1fr, 5);
-	width: 100vw;
-	scrollbar-width: 100px;
+	display: grid;
+	// grid-template-columns: 0.4fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+	grid-template-columns: 12rem calc(100% - 12rem);
+	grid-template-rows: 5rem 1fr;
+	gap: 0.5rem;
 }
+
+// @media screen and (width < 1600px) {
+// 	.App {
+// 		grid-template-columns: 12rem 1fr 1fr;
+// 	}
+// }
+
+// @media screen and (width < 1200px) {
+// 	.App {
+// 		grid-template-columns: 12rem 1fr;
+// 	}
+// }

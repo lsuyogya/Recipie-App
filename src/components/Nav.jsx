@@ -1,15 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/nav.scss';
+import { ReactComponent as LogoImg } from '../assets/Logo.svg';
 
 const Nav = () => {
 	return (
-		<nav>
-			<Link to='/random'> Random </Link>
-			<Link to='/categories'> Categories </Link>
-			<Link to='/ingredients'> Ingredients </Link>
-			{/* <Link to='/allmeals'> Meal Catalogue </Link> */}
-		</nav>
+		<header className='nav'>
+			<nav>
+				<Link to='/'>
+					<LogoImg style={{ height: '175px', width: '175px' }} />
+				</Link>
+				<Link to='/'>Home</Link>
+				<Link to='/categories'> Categories </Link>
+				<Link to='/ingredients'> Ingredients </Link>
+				{/* <Link to='/allmeals'> Meal Catalogue </Link> */}
+			</nav>
+		</header>
 	);
 };
 
