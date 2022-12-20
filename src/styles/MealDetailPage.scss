@@ -7,17 +7,17 @@ main {
 	gap: 2rem;
 }
 
-@media screen and (width < 1600px) {
-	main {
-		grid-template-columns: 1fr 1fr;
-	}
-}
+// @media screen and (width < 1600px) {
+// 	main {
+// 		grid-template-columns: 1fr 1fr;
+// 	}
+// }
 
-@media screen and (width < 1200px) {
-	main {
-		grid-template-columns: 1fr;
-	}
-}
+// @media screen and (width < 1200px) {
+// 	main {
+// 		grid-template-columns: 1fr;
+// 	}
+// }
 
 .top-bar {
 	display: flex;

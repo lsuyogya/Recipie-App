@@ -8,9 +8,9 @@ const Nav = () => {
 		<header className='nav'>
 			<nav>
 				<Link to='/'>
-					<LogoImg style={{ height: '175px', width: '175px' }} />
+					<LogoImg className='logo' />
 				</Link>
-				<Link to='/'>Home</Link>
+				{/* <Link to='/'>Home</Link> */}
 				<Link to='/categories'> Categories </Link>
 				<Link to='/ingredients'> Ingredients </Link>
 				{/* <Link to='/allmeals'> Meal Catalogue </Link> */}

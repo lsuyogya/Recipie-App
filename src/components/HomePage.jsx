@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
 import { getRandomData as getData, getSearchData } from '../apis/GetRecipie';
-import '../styles/RandomPage.scss';
+import '../styles/HomePage.scss';
 import MealCard from './MealCard';
 import MealCardContainer from './MealCardContainer';
 import Searchbar from './Searchbar';
@@ -74,7 +74,11 @@ const HomePage = () => {
 				<Loader />
 			) : searchResult.isFetched ? (
 				searchResult.data.data.meals === null ? (
-					<main className='card-holder'>Search Result Not found</main>
+					<main className='card-holder'>
+						<div className='card-container'>
+							<div className='card'>Search Result Not found</div>
+						</div>
+					</main>
 				) : (
 					<main className='card-holder'>
 						{searchResult.data.data.meals.map((meal) => (

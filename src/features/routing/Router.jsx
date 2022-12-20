@@ -8,6 +8,7 @@ import Layout from '../../components/Layout';
 import MealDetail from '../../components/MealDetail';
 import HomePage from '../../components/HomePage';
 import CategoryPage from '../../components/CategoryPage';
+import IngredientPage from '../../components/IngredientPage';
 
 const Router = () => {
 	const router = createBrowserRouter(
@@ -18,9 +19,8 @@ const Router = () => {
 					<Route path='/meal'>
 						<Route path=':mealId' element={<MealDetail />} />
 					</Route>
-					<Route path='/categories' element={<CategoryPage />}>
-						{/* <Route path='/' element={<CategoryPage />} /> */}
-					</Route>
+					<Route path='/categories' element={<CategoryPage />} />
+					<Route path='/ingredients' element={<IngredientPage />} />
 				</Route>
 				<Route path='*' element={404} />
 			</>

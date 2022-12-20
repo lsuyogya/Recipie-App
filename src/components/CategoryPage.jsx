@@ -1,4 +1,4 @@
-import '../styles/RandomPage.scss';
+import '../styles/HomePage.scss';
 import '../styles/card.scss';
 import React, { useEffect, useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
@@ -10,7 +10,7 @@ import { useRef } from 'react';
 
 const CategoryPage = () => {
 	const [searchString, setSearchString] = useState(undefined);
-	const searchRef = useRef();
+	const searchRef = useRef(1);
 	const randomQueryOptions = {
 		queryFn: getCategories,
 		refetchOnWindowFocus: false,
@@ -78,7 +78,7 @@ const CategoryPage = () => {
 				)
 			) : (
 				<main className='card-holder'>
-					{result.data.data.categories.map((res, index) => {
+					{result.data.data.categories?.map((res, index) => {
 						return (
 							<div className='card-container'>
 								<div

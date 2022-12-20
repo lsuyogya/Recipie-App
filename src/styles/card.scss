@@ -73,6 +73,10 @@
 		width: min-content;
 
 		img {
+			width: 300px;
+		}
+
+		img {
 			&.loading {
 				height: 400px;
 				width: 400px;
@@ -150,7 +154,7 @@
 		width: 95%;
 		img {
 			height: auto;
-			width: 20rem;
+			width: 300px;
 			object-fit: scale-down;
 			margin: auto;
 			margin-left: 3rem;

@@ -9,13 +9,13 @@ main.card-holder {
 }
 
 @media screen and (width < 1600px) {
-	main {
+	main.card-holder {
 		grid-template-columns: 1fr 1fr;
 	}
 }
 
 @media screen and (width < 1200px) {
-	main {
+	main.card-holder {
 		grid-template-columns: 1fr;
 	}
 }

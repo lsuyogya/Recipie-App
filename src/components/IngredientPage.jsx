@@ -1,33 +1,36 @@
-import '../styles/RandomPage.scss';
-import '../styles/Card.scss';
+import '../styles/HomePage.scss';
+import '../styles/card.scss';
 import React, { useEffect, useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
-import { getCategories, getSearchCategory } from '../apis/GetRecipie';
+import { getIngredients, getSearchIngredient } from '../apis/GetRecipie';
 import Searchbar from './Searchbar';
 import Loader from './Loader';
 import MealCard from './MealCard';
 import { useRef } from 'react';
 
-const CategoryPage = () => {
+const IngredientPage = () => {
 	const [searchString, setSearchString] = useState(undefined);
-	const searchRef = useRef();
+	const searchRef = useRef(2);
 	const randomQueryOptions = {
-		queryFn: getCategories,
+		queryFn: getIngredients,
 		refetchOnWindowFocus: false,
 		staleTime: Infinity,
 	};
 
-	const result = useQuery({ queryKey: ['getData'], ...randomQueryOptions });
+	const results = useQuery({
+		queryKey: ['getIngredientData'],
+		...randomQueryOptions,
+	});
 
-	console.log(result);
+	console.log(results);
 	const searchQueryOptions = {
-		queryFn: () => getSearchCategory(searchString),
+		queryFn: () => getSearchIngredient(searchString),
 		refetchOnWindowFocus: false,
 		staleTime: Infinity,
 	};
 
 	const searchResult = useQuery({
-		queryKey: ['searchData', searchString],
+		queryKey: ['searchIngredientData', searchString],
 		...searchQueryOptions,
 		enabled: !!searchString,
 	});
@@ -35,7 +38,7 @@ const CategoryPage = () => {
 	const handleSearch = (e) => {
 		setSearchString(e.target.value);
 	};
-	const handleCardClick = (searchString) => {
+	const handleSearchClick = (searchString) => {
 		searchRef.current.value = searchString;
 		setSearchString(searchString);
 	};
@@ -54,7 +57,7 @@ const CategoryPage = () => {
 		};
 	};
 
-	const loading = result.isLoading || searchResult.isLoading;
+	const loading = results.isLoading || searchResult.isLoading;
 
 	return (
 		<>
@@ -78,24 +81,30 @@ const CategoryPage = () => {
 				)
 			) : (
 				<main className='card-holder'>
-					{result.data.data.categories.map((res, index) => {
+					{results.data.data.meals?.map((res, index) => {
 						return (
 							<div className='card-container'>
-								<div
-									className='card clickable'
-									tabIndex={0}
-									onClick={() => handleCardClick(res.strCategory)}>
+								<div className='card'>
 									<img
-										src={res.strCategoryThumb}
+										src={`https://www.themealdb.com/images/ingredients/${res.strIngredient}.png`}
 										alt='Image not available'
 										loading='lazy'
 									/>
 									<div>
-										<div className='meal-name center'>{res.strCategory}</div>
+										<div className='meal-name center'>{res.strIngredient}</div>
 										<div className='col1 line-clamp'>
-											<div>{res.strCategoryDescription}</div>
+											<div>{res.strDescription}</div>
 										</div>
 									</div>
+									<button
+										onClick={() => {
+											alert('weee');
+										}}>
+										More Information
+									</button>
+									<button onClick={() => handleSearchClick(res.strIngredient)}>
+										Search
+									</button>
 								</div>
 							</div>
 						);
@@ -106,4 +115,4 @@ const CategoryPage = () => {
 	);
 };
 
-export default CategoryPage;
+export default IngredientPage;
