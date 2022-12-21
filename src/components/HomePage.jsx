@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
-import { getRandomData as getData, getSearchData } from '../apis/GetRecipie';
-import '../styles/HomePage.scss';
+import { getRandomData as getData, getSearchData } from 'apis/GetRecipie';
+import 'styles/HomePage.scss';
 import MealCard from './MealCard';
-import MealCardContainer from './MealCardContainer';
-import Searchbar from './Searchbar';
-import Loader from './Loader';
+import MealCardContainer from 'components/MealCardContainer';
+import Searchbar from 'components/Searchbar';
+import Loader from 'components/Loader';
 
 const HomePage = () => {
 	const [searchString, setSearchString] = useState(undefined);

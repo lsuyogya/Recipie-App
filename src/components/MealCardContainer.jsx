@@ -1,5 +1,5 @@
 import React from 'react';
-import MealCard from './MealCard';
+import MealCard from 'components/MealCard';
 
 const MealCardContainer = ({ data }) => {
 	return (

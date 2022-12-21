@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { getMealData } from '../apis/GetRecipie';
-import Loader from './Loader';
-import '../styles/Card.scss';
+import { getMealData } from 'apis/GetRecipie';
+import Loader from 'components/Loader';
+import 'styles/Card.scss';
 
 const MealDetail = () => {
 	const { mealId } = useParams();
