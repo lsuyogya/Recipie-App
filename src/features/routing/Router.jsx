@@ -5,12 +5,14 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-import Loader from 'components/Loader';
-const Layout = React.lazy(() => import('components/Layout'));
-const MealDetail = React.lazy(() => import('components/MealDetail'));
-const HomePage = React.lazy(() => import('components/HomePage'));
-const CategoryPage = React.lazy(() => import('components/CategoryPage'));
-const IngredientPage = React.lazy(() => import('components/IngredientPage'));
+import Loader from '/src/components/Loader';
+const Layout = React.lazy(() => import('/src/components/Layout'));
+const MealDetail = React.lazy(() => import('/src/components/MealDetail'));
+const HomePage = React.lazy(() => import('/src/components/HomePage'));
+const CategoryPage = React.lazy(() => import('/src/components/CategoryPage'));
+const IngredientPage = React.lazy(() =>
+	import('/src/components/IngredientPage')
+);
 
 const Router = () => {
 	const StyledLoader = (

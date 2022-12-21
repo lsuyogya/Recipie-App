@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'styles/nav.scss';
-import { ReactComponent as LogoImg } from 'assets/Logo.svg';
+import { ReactComponent as LogoImg } from '/src/assets/Logo.svg';
 
 const Nav = () => {
 	return (
