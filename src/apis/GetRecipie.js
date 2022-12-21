@@ -24,7 +24,7 @@ const getCategories = () =>{
 const getSearchCategory = (searchParam) => {
     const res = axios.get(`${baseURL}/filter.php?c=${searchParam}`);
     return res;
-};
+}
 const getIngredients = () =>{
     const res = axios.get(`${baseURL}/list.php?i=list.php`)
     return res

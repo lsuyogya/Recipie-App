@@ -1,15 +1,19 @@
 import '../styles/HomePage.scss';
 import '../styles/card.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useQueries, useQuery } from 'react-query';
 import { getIngredients, getSearchIngredient } from '../apis/GetRecipie';
 import Searchbar from './Searchbar';
 import Loader from './Loader';
 import MealCard from './MealCard';
 import { useRef } from 'react';
+import { useElementSize } from 'usehooks-ts';
+import { useMemo } from 'react';
+import IngredientCard from './IngredientCard';
 
 const IngredientPage = () => {
 	const [searchString, setSearchString] = useState(undefined);
+	const [endIndex, setEndIndex] = useState(6);
 	const searchRef = useRef(2);
 	const randomQueryOptions = {
 		queryFn: getIngredients,
@@ -22,7 +26,6 @@ const IngredientPage = () => {
 		...randomQueryOptions,
 	});
 
-	console.log(results);
 	const searchQueryOptions = {
 		queryFn: () => getSearchIngredient(searchString),
 		refetchOnWindowFocus: false,
@@ -59,6 +62,19 @@ const IngredientPage = () => {
 
 	const loading = results.isLoading || searchResult.isLoading;
 
+	//InfiniteScrolling
+	const observer = useRef();
+	const lastElementCallback = useCallback(
+		(node) => {
+			if (observer.current) observer.current.disconnect();
+			observer.current = new IntersectionObserver((entries) => {
+				if (entries[0].isIntersecting) setEndIndex(endIndex + 6);
+			});
+			if (node) observer.current.observe(node);
+		},
+		[endIndex]
+	);
+
 	return (
 		<>
 			<section className='top-bar'>
@@ -73,7 +89,7 @@ const IngredientPage = () => {
 				) : (
 					<main className='card-holder'>
 						{searchResult.data.data.meals.map((meal) => (
-							<div className='card-container'>
+							<div className='card-container' key={meal.strIngredient}>
 								<MealCard meal={meal} short />
 							</div>
 						))}
@@ -81,31 +97,23 @@ const IngredientPage = () => {
 				)
 			) : (
 				<main className='card-holder'>
-					{results.data.data.meals?.map((res, index) => {
-						return (
-							<div className='card-container'>
-								<div className='card'>
-									<img
-										src={`https://www.themealdb.com/images/ingredients/${res.strIngredient}.png`}
-										alt='Image not available'
-										loading='lazy'
-									/>
-									<div>
-										<div className='meal-name center'>{res.strIngredient}</div>
-										<div className='col1 line-clamp'>
-											<div>{res.strDescription}</div>
-										</div>
-									</div>
-									<button
-										onClick={() => {
-											alert('weee');
-										}}>
-										More Information
-									</button>
-									<button onClick={() => handleSearchClick(res.strIngredient)}>
-										Search
-									</button>
-								</div>
+					{results.data.data.meals?.slice(0, endIndex).map((res, index) => {
+						return index === endIndex - 1 ? (
+							<div
+								className='card-container'
+								key={res.strIngredient}
+								ref={lastElementCallback}>
+								<IngredientCard
+									res={res}
+									handleSearchClick={handleSearchClick}
+								/>
+							</div>
+						) : (
+							<div className='card-container' key={res.strIngredient}>
+								<IngredientCard
+									res={res}
+									handleSearchClick={handleSearchClick}
+								/>
 							</div>
 						);
 					})}
