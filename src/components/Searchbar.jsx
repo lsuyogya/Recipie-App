@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import '/src/styles/searchBar.scss';
+import '../styles/searchBar.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import { forwardRef } from 'react';
 

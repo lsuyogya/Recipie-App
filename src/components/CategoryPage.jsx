@@ -1,11 +1,11 @@
-import '/src/styles/HomePage.scss';
-import '/src/styles/card.scss';
+import 'styles/HomePage.scss';
+import 'styles/card.scss';
 import React, { useEffect, useState } from 'react';
 import { useQueries, useQuery } from 'react-query';
-import { getCategories, getSearchCategory } from '/src/apis/GetRecipie';
-import Searchbar from '/src/components/Searchbar';
-import Loader from '/src/components/Loader';
-import MealCard from '/src/components/MealCard';
+import { getCategories, getSearchCategory } from 'apis/GetRecipie';
+import Searchbar from 'components/Searchbar';
+import Loader from 'components/Loader';
+import MealCard from 'components/MealCard';
 import { useRef } from 'react';
 
 const CategoryPage = () => {
