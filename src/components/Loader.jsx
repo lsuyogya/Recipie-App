@@ -1,8 +1,8 @@
 import React from 'react';
 import CircleLoader from 'react-spinners/CircleLoader';
-const Loader = () => {
+const Loader = ({ style = {} }) => {
 	return (
-		<div className='center'>
+		<div className='center' style={style}>
 			<CircleLoader color='#74e42e' />
 		</div>
 	);
