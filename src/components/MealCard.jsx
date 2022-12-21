@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'styles/card.scss';
+import '../styles/card.scss';
 import { useNavigate } from 'react-router-dom';
 
 const MealCard = ({ meal, short = false }) => {

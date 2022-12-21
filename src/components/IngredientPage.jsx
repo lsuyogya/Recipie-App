@@ -1,13 +1,15 @@
-import 'styles/HomePage.scss';
-import 'styles/card.scss';
+import '../styles/HomePage.scss';
+import '../styles/card.scss';
 import React, { useEffect, useState, useCallback } from 'react';
 import { useQueries, useQuery } from 'react-query';
-import { getIngredients, getSearchIngredient } from 'apis/GetRecipie';
-import Searchbar from 'components/Searchbar';
-import Loader from 'components/Loader';
-import MealCard from 'components/MealCard';
+import { getIngredients, getSearchIngredient } from '../apis/GetRecipie';
+import Searchbar from './Searchbar';
+import Loader from './Loader';
+import MealCard from './MealCard';
 import { useRef } from 'react';
-import IngredientCard from 'components/IngredientCard';
+import { useElementSize } from 'usehooks-ts';
+import { useMemo } from 'react';
+import IngredientCard from './IngredientCard';
 
 const IngredientPage = () => {
 	const [searchString, setSearchString] = useState(undefined);
