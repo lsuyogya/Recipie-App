@@ -29,14 +29,14 @@ const Router = () => {
 						</Suspense>
 					}>
 					<Route
-						path='/'
+						path='/Recipie-App/'
 						element={
 							<Suspense fallback={StyledLoader}>
 								<HomePage />
 							</Suspense>
 						}
 					/>
-					<Route path='/meal'>
+					<Route path='Recipie-App/meal'>
 						<Route
 							path=':mealId'
 							element={
@@ -47,7 +47,7 @@ const Router = () => {
 						/>
 					</Route>
 					<Route
-						path='/categories'
+						path='Recipie-App/categories'
 						element={
 							<Suspense fallback={StyledLoader}>
 								<CategoryPage />
@@ -55,7 +55,7 @@ const Router = () => {
 						}
 					/>
 					<Route
-						path='/ingredients'
+						path='Recipie-App/ingredients'
 						element={
 							<Suspense fallback={StyledLoader}>
 								<IngredientPage />

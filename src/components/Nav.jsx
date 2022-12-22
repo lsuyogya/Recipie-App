@@ -7,12 +7,12 @@ const Nav = () => {
 	return (
 		<header className='nav'>
 			<nav>
-				<Link to='/'>
+				<Link to='/Recipie-App/'>
 					<LogoImg className='logo' />
 				</Link>
 				{/* <Link to='/'>Home</Link> */}
-				<Link to='/categories'> Categories </Link>
-				<Link to='/ingredients'> Ingredients </Link>
+				<Link to='/Recipie-App/categories'> Categories </Link>
+				<Link to='/Recipie-App/ingredients'> Ingredients </Link>
 				{/* <Link to='/allmeals'> Meal Catalogue </Link> */}
 			</nav>
 		</header>
