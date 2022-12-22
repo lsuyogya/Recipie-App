@@ -32,7 +32,7 @@ const MealDetail = () => {
 		return (
 			<>
 				<div></div>
-				<Loader />;
+				<Loader />
 			</>
 		);
 	if (!mealData) return 'Meal not Found';
@@ -40,26 +40,47 @@ const MealDetail = () => {
 		<>
 			{/* <div></div> */}
 			<div className='card-container-detail'>
-				<div className='card' style={{ gap: '2rem' }}>
-					<div className='flex-row'>
-						<img
-							src={mealData.strMealThumb}
-							alt='Image not available'
-							loading='lazy'
-						/>
+				<div className='card flex-row'>
+					<img
+						src={mealData.strMealThumb}
+						alt='Image not available'
+						loading='lazy'
+					/>
+					<div className='flex-col' style={{ gap: '2rem' }}>
+						<h1 className='max-width'>{mealData.strMeal}</h1>
 						<div className='meal-detail-table'>
-							<h1 className='flex-row max-width'>{mealData.strMeal}</h1>
-							<div className='col1'>
-								<div className='meal-key'>Origin </div>
-								<div className='meal-key'>Category </div>
-								<div className='meal-key'>Tags </div>
-								<div className='meal-key'>ID </div>
+							<div className='kvPair'>
+								<span className='col1'>
+									<div className='meal-key'>Origin </div>
+								</span>
+								<span className='col2'>
+									<div>{mealData.strArea?.replaceAll(',', ', ')}</div>
+								</span>
 							</div>
-							<div className='col2'>
-								<div>{mealData.strArea?.replaceAll(',', ', ')}</div>
-								<div>{mealData.strCategory?.replaceAll(',', ', ')}</div>
-								<div>{mealData.strTags?.replaceAll(',', ', ') || 'none'}</div>
-								<div>{mealData.idMeal?.replaceAll(',', ', ')}</div>
+							<div className='kvPair'>
+								<span className='col1'>
+									<div className='meal-key'>Category </div>
+								</span>
+								<span className='col2'>
+									<div>{mealData.strCategory?.replaceAll(',', ', ')}</div>
+								</span>
+							</div>
+
+							<div className='kvPair'>
+								<span className='col1'>
+									<div className='meal-key'>Tags </div>
+								</span>
+								<span className='col2'>
+									<div>{mealData.strTags?.replaceAll(',', ', ') || 'none'}</div>
+								</span>
+							</div>
+							<div className='kvPair'>
+								<span className='col1'>
+									<div className='meal-key'>ID </div>
+								</span>
+								<span className='col2'>
+									<div>{mealData.idMeal?.replaceAll(',', ', ')}</div>
+								</span>
 							</div>
 						</div>
 					</div>
