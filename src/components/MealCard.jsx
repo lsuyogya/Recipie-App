@@ -6,7 +6,7 @@ const MealCard = ({ meal, short = false }) => {
 	const nav = useNavigate();
 	const handleClick = (e) => {
 		e.preventDefault;
-		nav(`/meal/${meal.idMeal}`);
+		nav(`/Recipie-App/meal/${meal.idMeal}`);
 	};
 	return (
 		<>
