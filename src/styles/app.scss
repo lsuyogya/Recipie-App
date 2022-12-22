@@ -59,30 +59,28 @@
 }
 
 @media screen and (width < 500px) {
-	.App {
-		nav {
-			a {
-				font-size: 1.5rem;
-			}
+	nav {
+		a {
+			font-size: 1.5rem;
 		}
+	}
 
-		.search-box {
-			width: 10rem;
-			input {
-				width: 98%;
-			}
+	.search-box {
+		width: 10rem;
+		input {
+			width: 98%;
 		}
-		main.card-holder {
-			width: unset;
+	}
+	main.card-holder {
+		width: unset;
+	}
+	.card-container .card {
+		img.loading {
+			width: 200px;
+			height: 200px;
 		}
-		.card-container .card {
-			img.loading {
-				width: 200px;
-				height: 200px;
-			}
-			img {
-				width: 200px;
-			}
+		img {
+			width: 200px;
 		}
 	}
 }
@@ -110,3 +108,4 @@
 		}
 	}
 }
+// spcificity
