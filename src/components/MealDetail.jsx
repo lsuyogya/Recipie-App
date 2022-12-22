@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { getMealData } from '../apis/GetRecipie';
 import Loader from './Loader';
-import '../styles/Card.scss';
+import '../styles/card.scss';
 
 const MealDetail = () => {
 	const { mealId } = useParams();
