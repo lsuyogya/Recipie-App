@@ -11,7 +11,9 @@
 	gap: 0.5rem;
 }
 
-@media screen and (width < 750px) {
+//Range selector doesnt work on safari
+// @media screen and (width < 750px) {
+@media screen and (max-width: 750px) {
 	.App {
 		grid-template-columns: 1fr;
 		grid-template-rows: 5rem 5rem 1fr;
@@ -48,7 +50,8 @@
 	}
 }
 
-@media screen and (width < 800px) {
+// @media screen and (width < 800px) {
+@media screen and (max-width: 800px) {
 	.App {
 		.detail-table-flex {
 			.detail {
@@ -58,7 +61,8 @@
 	}
 }
 
-@media screen and (width < 500px) {
+// @media screen and (width < 500px) {
+@media screen and (max-width: 500px) {
 	.App {
 		nav {
 			a {
@@ -87,7 +91,8 @@
 	}
 }
 
-@media screen and (width < 350px) {
+// @media screen and (width < 350px) {
+@media screen and (max-width: 350px) {
 	.App {
 		nav {
 			a {
